@@ -8,17 +8,28 @@ function App() {
         {id: 1, title: 'Javascript', body: 'Description'},
         {id: 2, title: 'Javascript 2', body: 'Description'},
         {id: 3, title: 'Javascript 3', body: 'Description'},
-        {id: 4, title: 'Javascript 4', body: 'Description'},
     ])
 
     const createPost = (newPost) => {
         setPosts([...posts, newPost])
     }
 
+    const removePost = (post) => {
+        setPosts(posts.filter(p => p.id !== post.id))
+    }
+
     return (
         <div className="App">
             <PostForm create={createPost}/>
-            <PostList posts={posts} title="Посты про JS"/>
+            {posts.length
+                ?
+                <PostList remove={removePost} posts={posts} title="Посты про JS"/>
+                :
+                <h1 style={{textAlign: "center"}}>
+                    Посты не найдены
+                </h1>
+            }
+
         </div>
     );
 }
