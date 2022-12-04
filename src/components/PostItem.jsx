@@ -9,7 +9,7 @@ const PostItem = (props) => {
                     {props.post.body}
                 </div>
             </div>
-            <div className="post__btns">
+            <div className="post__buttons">
                 <button>Удалить</button>
             </div>
         </div>

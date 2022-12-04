@@ -1,8 +1,7 @@
 import React, {useState} from "react";
-import Counter from "./components/Counter";
-import ClassCounter from "./components/ClassCounter";
 import './styles/App.css';
 import PostList from "./components/PostList";
+import MyButton from "./components/UI/button/MyButton";
 
 function App() {
     const [posts, setProps] = useState([
@@ -11,9 +10,13 @@ function App() {
         {id: 3, title: 'Javascript 3', body: 'Description'},
         {id: 4, title: 'Javascript 4', body: 'Description'},
     ])
+
   return (
     <div className="App">
-        <PostList posts={posts}/>
+        <input type="text" placeholder="Название поста"/>
+        <input type="text" placeholder="Описание поста"/>
+        <MyButton disabled>Создать</MyButton>
+        <PostList posts={posts} title="Посты про JS"/>
     </div>
   );
 }
